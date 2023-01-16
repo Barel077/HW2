@@ -12,11 +12,11 @@ export default function RdyRecipe(props) {
         <Card.Img variant="top" src={props.inPrep.image} />
         <Card.Body>
           <Card.Text>
-            {props.inPrep.ingrediants}
+            Ingrediants: {props.inPrep.ingrediants}
             <br />
-            {props.inPrep.cookingMethod}
+            Cooking method: {props.inPrep.cookingMethod}
             <br />
-            {props.inPrep.time}
+            Time: {props.inPrep.time}
           </Card.Text>
           <Button onClick={() => props.rdyDishToPrep(props.inPrep)} variant="primary">Eat!</Button>
         </Card.Body>

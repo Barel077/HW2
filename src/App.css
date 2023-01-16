@@ -38,3 +38,7 @@ body {
   box-shadow: #222 1px 0 10px;
   text-decoration: underline;
 }
+
+form > label {
+font-size: 30px;
+}

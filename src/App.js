@@ -1,17 +1,17 @@
 import MyKitchen from './Comps/MyKitchen';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import { Link, Route, Router, Routes } from 'react-router-dom';
 
 
 function App() {
   return (
-    <div className="App">
+
+    <div className="App" >
       <header className="App-header">
-        
-        <MyKitchen></MyKitchen>
-        
       </header>
     </div>
+
   );
 }
 

@@ -7,7 +7,8 @@ import first from "../Images/first.jpg"
 import second from "../Images/second.jpg"
 import third from "../Images/third.jpg"
 
-export default class MyKitchen extends Component {
+
+export class MyKitchen extends Component {
     constructor(props) {
         super(props);
 
@@ -15,9 +16,27 @@ export default class MyKitchen extends Component {
         //'inPrep' --> All meals that are waiting to be made || 'ready' --> All meals that are ready to eat.
         this.state = {
             madeMealsCounter: 0,
-            inPrep: [new CDishRecipe("AAA", "Ingrediants...", "Time...", "Method...", first), new CDishRecipe("BBB", "Ingrediant...", "Time...", "Method...", second), new CDishRecipe("CCC", "Ingrediant...", "Time...", "Method...", third)],
+            inPrep: [],
             ready: []
         }
+
+        fetch("https://localhost:7204/api/Recipes")
+        .then(res => {
+            console.log('res=', res);
+            return res.json();
+        })
+        .then(
+            (result) => {
+                console.log("fetch Get= ", result);
+               this.setState({
+                inPrep: [...result]
+               } )
+              
+                
+            },
+            (error) => {
+                console.log("err post=", error);
+            });
     }
 
 
@@ -26,7 +45,7 @@ export default class MyKitchen extends Component {
 
 
     //Removes a dish waiting to be cooked from 'inPrep' and pushes it into 'ready'.
-    PrepDishToRdy = (clickedDish) => {
+    PrepDishToRdy = (clickedDish) => { console.log(this.state.inPrep)
         let newInPrep = [...this.state.inPrep];
         newInPrep = newInPrep.filter(dish => dish.name !== clickedDish.name);
         let newReady = [clickedDish, ...this.state.ready]
@@ -60,7 +79,7 @@ export default class MyKitchen extends Component {
 
     render() {
         return (
-            <div>
+            <div style={{"marginTop":"50px"}}>
                 <div style={{ height: "75px", background: "lightblue", textAlign: "center", fontSize: "30px", fontWeight: "bold" }}>
                     <p>Dishes In Preparation</p>
                 </div>

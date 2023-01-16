@@ -11,11 +11,11 @@ export default function InPrepRecipe(props) {
         <Card.Img variant="top" src={props.inPrep.image} />
         <Card.Body>
           <Card.Text>
-            {props.inPrep.ingrediants}
+            Ingredients: {props.inPrep.ingrediants}
             <br />
-            {props.inPrep.cookingMethod}
+            Cooking method: {props.inPrep.cookingMethod}
             <br />
-            {props.inPrep.time}
+            Time: {props.inPrep.time}
           </Card.Text>
           <Button onClick={() => props.prepDishToRdy(props.inPrep)} variant="primary">Prepare Dish</Button>
         </Card.Body>
